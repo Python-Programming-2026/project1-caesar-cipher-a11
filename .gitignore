@@ -11,6 +11,9 @@ venv/
 # VSCode
 .vscode/
 
+# pytest
+.pytest_cache/
+
 # Distribution
 dist/
 build/
