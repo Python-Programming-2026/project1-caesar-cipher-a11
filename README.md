@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # Caesar Cipher Tool (凯撒密码处理工具)
 
-本项目是一个基于 Python 实现的命令行工具，旨在完成字符串及文本文件的凯撒密码加密与解密任务。并针对大文件处理进行了性能优化。
+本项目是一个基于 Python 实现的命令行工具，旨在完成字符串及文本文件的凯撒密码加密与解密任务。
 
 ## 功能特性
 
@@ -97,6 +96,3 @@ caesar decrypt-file examples/encoded.txt examples/decoded.txt --shift 5
 ## 小组成员
 - 刘一鸣 学号：2223410113
 - 马宇航 学号：2246516102
-=======
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/fPQK30A4)
->>>>>>> 35bef9f0c522dfca1b0b72e8cbcd55c8a620e474
