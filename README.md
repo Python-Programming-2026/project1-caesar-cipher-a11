@@ -49,8 +49,8 @@ caesar-cipher-tool/
 #### 克隆github库:
 
 ```bash
-git clone https://github.com/your-username/caesar-cipher-cli.git
-cd caesar-cipher-cli
+git clone https://github.com/emptyhead761/caesar_cipher_tool.git
+cd caesar-tool
 ```
 
 #### 创建虚拟环境（可选）:
@@ -93,6 +93,6 @@ caesar encrypt-file examples/sample.txt examples/encoded.txt --shift 5
 caesar decrypt-file examples/encoded.txt examples/decoded.txt --shift 5
 ```
 
-##队伍成员
-·刘一鸣 学号：2223410113
-·马宇航 学号：2246516102
+## 小组成员
+-刘一鸣 学号：2223410113
+-马宇航 学号：2246516102
