@@ -1,14 +1,15 @@
 def normalize_shift(shift: int) -> int:
     """
-    Normalize shift value to range [0, 25].
+    将偏移量规范化到 [0, 25] 范围内。
+    利用 % 取模运算符实现数值的周期性循环。
     """
     return shift % 26
 
 
 def shift_char(char: str, shift: int) -> str:
     """
-    Shift a single character by shift positions.
-    Only letters are shifted; other characters remain unchanged.
+    对单个字符进行位移。
+    使用if 选择结构、ord/chr 内置函数。
     """
     if not char.isalpha():
         return char
@@ -25,13 +26,14 @@ def shift_char(char: str, shift: int) -> str:
 
 def encrypt_text(text: str, shift: int) -> str:
     """
-    Encrypt text using Caesar cipher.
+    使用凯撒密码加密完整文本。
+    使用for 循环遍历，join 字符串拼接。
     """
     return "".join(shift_char(c, shift) for c in text)
 
 
 def decrypt_text(text: str, shift: int) -> str:
     """
-    Decrypt text using Caesar cipher.
+    解密与加密相同
     """
     return encrypt_text(text, -shift)

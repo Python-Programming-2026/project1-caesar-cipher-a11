@@ -1,5 +1,5 @@
 import os
-from caesar_cipher.file_handler import encrypt_file, decrypt_file
+from caesar_cipher.cipher_for_txt import encrypt_file, decrypt_file
 
 
 def test_file_encrypt_decrypt(tmp_path):

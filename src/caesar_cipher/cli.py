@@ -1,7 +1,7 @@
 import argparse
 
 from caesar_cipher.cipher import encrypt_text, decrypt_text
-from caesar_cipher.file_handler import encrypt_file, decrypt_file
+from caesar_cipher.cipher_for_txt import encrypt_file, decrypt_file
 
 
 def main():

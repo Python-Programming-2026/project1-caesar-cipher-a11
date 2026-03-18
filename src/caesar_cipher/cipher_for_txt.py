@@ -1,13 +1,13 @@
 from pathlib import Path
 
 
-CHUNK_SIZE = 4096  # 4KB，可调
+CHUNK_SIZE = 4096  # 一次转换4KB，可调
 
 
 def build_translation_table(shift: int) -> dict:
     """
-    Build translation table for Caesar cipher using str.maketrans.
-    Supports both lowercase and uppercase letters.
+    为优化较大文本性能，使用 str.maketrans 构建字母映射表。
+    通过字符串切片和字典实现的字符映射。
     """
     shift = shift % 26
 
@@ -22,13 +22,13 @@ def build_translation_table(shift: int) -> dict:
 
 def process_file(input_path: str, output_path: str, shift: int, mode: str):
     """
-    Core file processing function.
-
-    Parameters:
+    分块读写（对较大文件）
+    变量:
     - input_path: path to input file
     - output_path: path to output file
     - shift: Caesar shift value
     - mode: "encrypt" or "decrypt"
+    使用raise返回错误
     """
     input_path = Path(input_path)
     output_path = Path(output_path)
@@ -36,9 +36,16 @@ def process_file(input_path: str, output_path: str, shift: int, mode: str):
     if not input_path.exists():
         raise FileNotFoundError(f"Input file not found: {input_path}")
 
+    if input_path.suffix.lower() != ".txt":
+        raise ValueError("Input file must be a .txt file")
+    
+    if output_path.suffix.lower() != ".txt":
+        raise ValueError("Output file must be a .txt file")
+
     if mode not in ("encrypt", "decrypt"):
         raise ValueError("mode must be 'encrypt' or 'decrypt'")
-
+    
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     if mode == "decrypt":
         shift = -shift
 
@@ -53,13 +60,13 @@ def process_file(input_path: str, output_path: str, shift: int, mode: str):
 
 def encrypt_file(input_path: str, output_path: str, shift: int):
     """
-    Encrypt a file using Caesar cipher.
+    加密封装
     """
     process_file(input_path, output_path, shift, mode="encrypt")
 
 
 def decrypt_file(input_path: str, output_path: str, shift: int):
     """
-    Decrypt a file using Caesar cipher.
+    解密封装
     """
     process_file(input_path, output_path, shift, mode="decrypt")
